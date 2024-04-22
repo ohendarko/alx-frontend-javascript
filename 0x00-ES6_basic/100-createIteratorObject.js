@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 export default function createIteratorObject(report) {
   const { allEmployees } = report;
   const departments = Object.keys(allEmployees);
