@@ -39,6 +39,10 @@ function createPost(post) {
 
 // init();
 
+// Async/Await with fetch
+async function fetchUsers() {
+
+}
 
 //Promise.all
 // const promise1 = Promise.resolve('Hello World');
