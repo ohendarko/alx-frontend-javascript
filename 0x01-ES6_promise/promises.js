@@ -32,12 +32,12 @@ function createPost(post) {
 // createPost({ title: 'Post Three', body: 'This is post three' }).then(getPosts).catch(err => console.log(err));
 
 // Async/Await
-async function init() {
-  await createPost({ title: 'Post Three', body: 'This is post three' });
-  getPosts();
-}
+// async function init() {
+//   await createPost({ title: 'Post Three', body: 'This is post three' });
+//   getPosts();
+// }
 
-init();
+// init();
 
 
 //Promise.all
