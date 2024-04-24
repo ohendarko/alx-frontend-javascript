@@ -2,13 +2,22 @@ import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
-  const userPromise = signUpUser(firstName, lastName);
-  const photoPromise = uploadPhoto(fileName);
-  return Promise.allSettled([userPromise, photoPromise])
-    .then((results) => results.map((result) => ({
-      status: result.status,
-      value: result.status === 'fulfilled' ? result.value : result.reason,
-    }))).catch(() => {
-      console.error('An unexpected error occurred');
-    });
+  try {
+    const [signUpResult, uploadResult] = await Promise.all([
+      signUpUser(firstName, lastName),
+      uploadPhoto(fileName).catch(error => ({ status: 'rejected', value: error })),
+    ]);
+    return [
+      {
+        status: signUpResult.status,
+        value: signUpResult.value || signUpResult.error,
+      },
+      {
+        status: uploadResult.status,
+        value: uploadResult.value || uploadResult.error,
+      },
+    ];
+  } catch (error) {
+    console.error("An unexpected error occurred:", error);
+  }
 }
