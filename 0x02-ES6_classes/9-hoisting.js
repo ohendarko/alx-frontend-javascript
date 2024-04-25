@@ -21,6 +21,7 @@ export class StudentHolberton {
     this._firstName = firstName;
     this._lastName = lastName;
     this._holbertonClass = holbertonClass;
+    Object.freeze(this._holbertonClass);
   }
 
   get fullName() {
@@ -28,7 +29,7 @@ export class StudentHolberton {
   }
 
   get holbertonClass() {
-    return this.holbertonClass;
+    return this._holbertonClass;
   }
 
   get fullStudentDescription() {
