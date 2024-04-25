@@ -5,7 +5,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   try {
     const [signUpResult, uploadResult] = await Promise.all([
       signUpUser(firstName, lastName),
-      uploadPhoto(fileName).catch(error => ({ status: 'rejected', value: error })),
+      uploadPhoto(fileName).catch((error) => ({ status: 'rejected', value: error })),
     ]);
     return [
       {
@@ -18,6 +18,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
       },
     ];
   } catch (error) {
-    console.error("An unexpected error occurred:", error);
+    console.error('An unexpected error occurred:', error);
   }
+  return [];
 }
