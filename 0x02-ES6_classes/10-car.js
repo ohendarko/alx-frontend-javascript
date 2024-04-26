@@ -5,7 +5,9 @@ export default class Car {
     this._motor = motor;
     this._color = color;
 
-    this[cloneMethod] = () => new Car(this._brand, this._motor, this._color);
+    this[cloneMethod] = function () {
+      return new Car(this._brand, this._motor, this._color);
+    }
   }
 
   cloneCar() {
