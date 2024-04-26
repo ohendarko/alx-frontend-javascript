@@ -1,16 +1,15 @@
-const cloneMethod = Symbol('clone');
 export default class Car {
   constructor(brand, motor, color) {
     this._brand = brand;
     this._motor = motor;
     this._color = color;
+  }
 
-    this[cloneMethod] = function () {
-      return new Car(this._brand, this._motor, this._color);
-    }
+  static get [Symbol.species]() {
+    return this.prototype.constructor;
   }
 
   cloneCar() {
-    return this[cloneMethod]();
+    return new (this.constructor[Symbol.species])();
   }
 }
