@@ -41,3 +41,12 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director
   }
 }
+
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+
+let Subjects: 'Math' | 'History';
+
+function tea
