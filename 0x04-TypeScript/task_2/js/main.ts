@@ -47,6 +47,12 @@ function isDirector(employee: Director | Teacher): employee is Director {
 }
 
 
-let Subjects: 'Math' | 'History';
+type Subjects = 'Math' | 'History';
 
-function tea
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
+  }
+}
