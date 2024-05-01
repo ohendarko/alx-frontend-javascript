@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const weakMap = new WeakMap();
 
 function queryAPI(endpoint) {
